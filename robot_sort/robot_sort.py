@@ -97,7 +97,46 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        self.set_light_on()
+        while self.light_is_on():
+
+
+
+            self.set_light_off()
+            self.swap_item()
+
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+
+            while self.can_move_left() and self.compare_item() != None:
+
+                self.move_left()
+
+            self.swap_item()
+            self.move_right()
+
+
+
+
+
+
+
+
+
+
+
+
+"arr1 = [3,1,5] -> 3, travels, new array: [None, 1, 5]"
+"3 > 1 swap. new array: [None, 3, 5]"
+"move right, 3< , no swap"
+
+"if can move left, and comparison is not None"
+"move left"
+"since comparison is None swap: new array: [1,3,5]"
+
 
 
 if __name__ == "__main__":
@@ -109,4 +148,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    print(l)
